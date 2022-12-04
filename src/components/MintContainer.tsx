@@ -109,8 +109,9 @@ export function MintContainer() {
                       </div>
                     </div>
                   </div>
-                  <div className='mt-3 select-none'>
+                  
                   {approved && (   
+                    <div className='mt-3 select-none'>
                     <AnimatedButton
                       disabled={preparation.isError}
                       title={getButtonTitle()}
@@ -126,8 +127,10 @@ export function MintContainer() {
                         )
                       }
                       onClick={mint}
-                    />)}                    
+                    />
+                    </div>)}                    
                   {!approved && 
+                  <div className='mt-3 select-none'>
                     <AnimatedButton
                       disabled={prep.isError}
                       title={'Approve BUSD'}
@@ -137,9 +140,9 @@ export function MintContainer() {
                             className='mt-[-3px] mr-2 inline-block'
                           />}
                       onClick={approve}
-                    />
+                    /></div>
                   }
-                  </div>
+                  
                 </>
               )}
               
