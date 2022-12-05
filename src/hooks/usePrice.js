@@ -13,7 +13,7 @@ export default function usePrice() {
     watch: false,
     select: (data) => BigNumberToLocalString(data, 1),
   });
-
+//testing
   const router = useRouter();
   let { ref } = router.query;
   if (typeof ref === 'undefined'){

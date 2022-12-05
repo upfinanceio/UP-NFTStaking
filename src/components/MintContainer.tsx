@@ -18,7 +18,6 @@ import LoadingSpinner from '@/components/LoadingSpinner';
 
 export function MintContainer() {
   const [quantity, setQuantity] = useState(1);
-  //const [referrer, setReferrer] = useState();
   const { address } = useAccount();
   const { price } = usePrice();
   const { approved } = useCheckApprove(address); 
@@ -61,12 +60,6 @@ export function MintContainer() {
     }
     return 'Mint';
   };
-/*
-  const options = ['One', 'Two', 'Three', 'Four', 'Five'];
-  const onOptionChangeHandler = (event: React.ChangeEvent<HTMLSelectElement>) => {
-      setReferrer(event.target.value);
-      console.log("User Selected Value - ", referrer)
-  }*/
 
   return (
     <div className=''>
@@ -113,16 +106,7 @@ export function MintContainer() {
                       </div>
                     </div>
                   </div>
-                  {/*<div className='flex select-none items-center justify-between'>     
-                  <label htmlFor="cars">Select Referrer:</label>
-                    <select name='cars' onChange={onOptionChangeHandler} style={{color: '#000', float: 'right', marginTop: '10px'}}>                   
-                      {options.map((option, index) => {
-                          return <option key={index} >
-                              {option}
-                          </option>
-                      })}
-                  </select>
-                    </div>   */}
+              
                   {approved && (   
                     <div className='mt-3 select-none'>
                     <AnimatedButton

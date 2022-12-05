@@ -2,7 +2,7 @@ import contractABI from './abi.json';
 
 export const nftContract = {
   97: {
-    address: '0xf37652bC261022B36458a798a3f2FBDd9bF8d7e1',
+    address: '0x681D014dA09329abc7c5b762e516B70f1146FB8B',
     abi: contractABI,
   },
   56: {
