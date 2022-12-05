@@ -4,7 +4,7 @@ export function Hero() {
       <h1 className='text-6xl'>
        Mint The UP <span className='text-yellow-500'>NFT</span> Collection
       </h1>
-      <h2 className='text-3xl'>Recieve exclusive benefits in the Up ecosystem</h2>
+      <h2 className='text-3xl'>Receive exclusive benefits in the Up ecosystem</h2>
 
       <h3 className='mt-10 mb-10 text-1xl text-slate-50'>
       <b>How does it work?</b> It's simple...
