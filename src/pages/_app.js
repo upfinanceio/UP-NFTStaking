@@ -11,7 +11,7 @@ import Toast from '@/components/layout/Toast';
 
 import { ToastProvider } from '@/contexts/ToastContext';
 
-const avalancheChain = {
+const bsc = {
   id: 56,
   name: `Binance`,
   network: `bsc`,
@@ -48,11 +48,11 @@ const bscTestnet = {
 };
 
 const { provider, chains } = configureChains(
-  [avalancheChain, bscTestnet],
+  [bsc, bscTestnet],
   [
     jsonRpcProvider({
       rpc: (chain) => {
-        if (chain.id !== avalancheChain.id) return null;
+        if (chain.id !== bsc.id) return null;
         return { http: chain.rpcUrls.default };
       },
     }),

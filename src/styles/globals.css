@@ -31,15 +31,9 @@
 }
 
 .linear-gradient {
-  background: linear-gradient(
-    54deg,
-    rgb(17, 17, 17) 0%,
-    rgb(27, 28, 29) 5%,
-    rgb(41, 41, 41) 30%,
-    rgb(46, 45, 45) 52%,
-    rgb(67, 68, 71) 85%,
-    rgb(85, 85, 84) 100%
-  );
+
+  background: url('/images/background.png') no-repeat;
+  background-size: cover;
 }
 
 @layer base {

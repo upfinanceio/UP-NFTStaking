@@ -5,6 +5,7 @@ import useRendered from '@/hooks/useRendered';
 import Footer from '@/components/layout/Footer';
 import Menu from '@/components/layout/Menu/Menu';
 import Seo from '@/components/Seo';
+import img from '@/images/background.png';
 
 export default function Layout({
   title,

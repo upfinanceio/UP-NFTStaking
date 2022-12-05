@@ -8,8 +8,8 @@ import { MintContainer } from '@/components/MintContainer';
 export default function HomePage() {
   return (
     <Layout title='Home'>
-      <main>
-        <section className='text-white'>
+      <main >
+        <section className='text-white' >
           <div className='mt-20 grid grid-cols-1 items-start justify-between gap-2 md:grid-cols-2 md:gap-0 '>
             <Hero />
             <MintContainer />

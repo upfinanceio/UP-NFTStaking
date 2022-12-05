@@ -97,7 +97,7 @@ const Toast = () => {
               } `}
               target='_blank'
               rel='noreferrer'
-              href={`https://testnet.snowtrace.io/tx/${toastContext.toastContent.hash}`}
+              href={`https://bscscan.com/tx/${toastContext.toastContent.hash}`}
             >
               <span className='text-xs text-white'>View on Explorer</span>
               <svg

@@ -6,7 +6,7 @@ export default function Logo() {
     <div className='cursor-pointer'>
       <Link href='/'>    
         <div>      
-          <img src="./images/logo.png" width="200px" />
+          <img src="./images/logo.png" width="150px" />
         </div>
       </Link>
     </div>
