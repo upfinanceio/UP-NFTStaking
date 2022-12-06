@@ -47,7 +47,7 @@ const Toast = () => {
         <div
           className={`flex items-center justify-between rounded-t-md border-b border-white/20 ${
             toastContext.toastContent?.status === TransactionStatus.Success
-              ? 'bg-blue-500/60'
+              ? 'bg-yellow-500/60'
               : 'bg-red-500/60'
           } bg-clip-padding py-2 px-3`}
         >
@@ -92,7 +92,7 @@ const Toast = () => {
             <a
               className={`flex items-center gap-1 align-middle text-xs ${
                 toastContext.toastContent?.status === TransactionStatus.Success
-                  ? 'text-blue-500/50'
+                  ? 'text-yellow-500/50'
                   : 'text-red-500/50'
               } `}
               target='_blank'
@@ -122,7 +122,7 @@ const Toast = () => {
             toastVisible ? 'w-full' : 'w-0'
           }  ${
             toastContext.toastContent.status === TransactionStatus.Success
-              ? 'bg-blue-500'
+              ? 'bg-yellow-500'
               : 'bg-red-500'
           } transition-all duration-[5000ms] ease-linear`}
         ></div>

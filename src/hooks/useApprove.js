@@ -1,8 +1,8 @@
 import { nftContract } from 'contracts/nftContract/nftContract';
 import { tokenContract } from 'contracts/token/tokenContract';
-import { BigNumber } from 'ethers';
 import { useContractWrite, useNetwork, usePrepareContractWrite } from 'wagmi';
 import { useWaitForTransaction } from 'wagmi';
+
 import { TransactionStatus } from '@/constant/types';
 import { useToast } from '@/contexts/ToastContext';
 
@@ -14,7 +14,10 @@ export default function useApprove() {
     address: tokenContract[chain?.id]?.address,
     abi: tokenContract[chain?.id]?.abi,
     functionName: 'approve',
-    args: [nftContract[chain?.id]?.address, '0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff'],
+    args: [
+      nftContract[chain?.id]?.address,
+      '0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff',
+    ],
     onError(error) {
       console.log('Prep error');
       console.error(error);
@@ -39,9 +42,6 @@ export default function useApprove() {
         `Failed to approve`,
         trans.data.hash
       );
-    },
-    onSettled(data, error) {
-      console.log('confirmation Settled', { data, error });
     },
   });
 

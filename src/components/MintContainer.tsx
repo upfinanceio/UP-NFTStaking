@@ -5,12 +5,14 @@ import { FaPlusSquare } from 'react-icons/fa';
 import { GiReceiveMoney } from 'react-icons/gi';
 import { useAccount } from 'wagmi';
 
+import useApprove from '@/hooks/useApprove';
+import useCheckApprove from '@/hooks/useCheckApprove';
 import useMaxSupply from '@/hooks/useMaxSupply';
 import useMint from '@/hooks/useMint';
 import usePrice from '@/hooks/usePrice';
 import useSupply from '@/hooks/useSupply';
-import useCheckApprove from '@/hooks/useCheckApprove';
-import useApprove from '@/hooks/useApprove';
+import useUserBalance from '@/hooks/useUserBalance';
+import useUserNFTBalance from '@/hooks/useUserNFTBalance';
 
 import AnimatedButton from '@/components/buttons/AnimatedButton';
 import ConnectButton from '@/components/buttons/ConnectButton';
@@ -20,8 +22,10 @@ export function MintContainer() {
   const [quantity, setQuantity] = useState(1);
   const { address } = useAccount();
   const { price } = usePrice();
-  const { approved } = useCheckApprove(address); 
+  const { approved } = useCheckApprove();
 
+  const { userBalance } = useUserBalance();
+  const { userNFTBalance } = useUserNFTBalance();
   const { supply } = useSupply();
   const { maxSupply } = useMaxSupply();
   const { preparation, transaction, confirmation } = useMint(quantity);
@@ -64,27 +68,46 @@ export function MintContainer() {
   return (
     <div className=''>
       <div className='flex justify-center'>
-        <div className='w-[400px] rotate-2 rounded-t-3xl rounded-b-lg border-[1px] border-slate-100/20 bg-white/10 px-3 py-3 uppercase text-white shadow-2xl transition-all hover:bg-white/20'>
+        <div className='w-[80%] rotate-0 rounded-t-3xl rounded-b-lg border-[1px] border-white/20 bg-white/10 px-3 py-3 uppercase text-white shadow-2xl backdrop-blur-sm transition-all hover:bg-white/20 md:w-[350px] md:rotate-2 lg:w-[450px]'>
           <div className='py-1 px-1'>
             <div className='relative h-full'>
-        <video autoPlay loop muted playsInline className='rounded-t-2xl rounded-b-md'>
-            <source src="./images/video.mp4" type='video/webm; codecs=vp9'/>
-        </video>
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className='rounded-t-2xl rounded-b-md'
+              >
+                <source
+                  src='./images/video.mp4'
+                  type='video/webm; codecs=vp9'
+                />
+              </video>
               {address && (
                 <>
                   <div className='mt-2'>
                     <div className='flex justify-between'>
+                      <div className=''>Your NFTs</div>
+                      <div className='font-bold'>{`${userNFTBalance}`} NFTs</div>
+                    </div>
+                    <div className='flex justify-between'>
+                      <div className=''>Your Busd Balance</div>
+                      <div className='font-bold'>{`${userBalance}`} BUSD</div>
+                    </div>
+                    <div className='flex justify-between'>
                       <div className=''>Price</div>
-                      <div className='font-bold'>{totalCost} BUSD</div>
+                      <div className='font-bold'>{`${totalCost}`} BUSD</div>
                     </div>
                     <div className='flex justify-between'>
                       <div className=''>Remaining Supply</div>
                       <div className='font-bold'>
-                        {`${supply} / ${maxSupply}`}
+                        {`${supply ? supply : 0} / ${
+                          maxSupply ? maxSupply : 0
+                        }`}
                       </div>
-                    </div>          
+                    </div>
                     <div className='flex select-none items-center justify-between '>
-                      <div className=''>Quantity</div>
+                      <div className=''>Quantity (Max 50 per transaction)</div>
                       <div className='flex items-center gap-4'>
                         <button
                           disabled={isMinting() || quantity == 1}
@@ -106,44 +129,48 @@ export function MintContainer() {
                       </div>
                     </div>
                   </div>
-              
-                  {approved && (   
+
+                  {approved && (
                     <div className='mt-3 select-none'>
-                    <AnimatedButton
-                      disabled={preparation.isError}
-                      title={getButtonTitle()}
-                      backgroundColor='bg-yellow-600'
-                      icon={
-                        isMinting() ? (
-                          <LoadingSpinner />
-                        ) : (
-                          <GiReceiveMoney
-                            color='white'
-                            className='mt-[-3px] mr-2 inline-block'
-                          />
-                        )
-                      }
-                      onClick={mint}
-                    />
-                    </div>)}                    
-                  {!approved && 
-                  <div className='mt-3 select-none'>
-                    <AnimatedButton
-                      disabled={prep.isError}
-                      title={'Approve BUSD'}
-                      backgroundColor='bg-yellow-600'
-                      icon={<GiReceiveMoney
-                            color='white'
-                            className='mt-[-3px] mr-2 inline-block'
-                          />}
-                      onClick={approve}
-                    /></div>
-                  }
-                  
+                      <AnimatedButton
+                        disabled={preparation.isError}
+                        title={getButtonTitle()}
+                        backgroundColor='bg-yellow-600'
+                        icon={
+                          isMinting() ? (
+                            <LoadingSpinner />
+                          ) : (
+                            <GiReceiveMoney color='white' />
+                          )
+                        }
+                        onClick={mint}
+                      />
+                    </div>
+                  )}
+                  {!approved && (
+                    <div className='mt-3 select-none'>
+                      <AnimatedButton
+                        disabled={prep.isError}
+                        title={
+                          trans.status === 'loading' ||
+                          confirm.status === 'loading'
+                            ? 'Approving BUSD'
+                            : 'Approve BUSD'
+                        }
+                        backgroundColor='bg-yellow-600'
+                        icon={<GiReceiveMoney color='white' />}
+                        onClick={approve}
+                      />
+                    </div>
+                  )}
                 </>
               )}
-              
-              {!address && <div className='mt-3 select-none'><ConnectButton /></div>}
+
+              {!address && (
+                <div className='mt-3 select-none'>
+                  <ConnectButton />
+                </div>
+              )}
             </div>
           </div>
         </div>

@@ -24,7 +24,7 @@ class MyDocument extends Document {
             crossOrigin='anonymous'
           />
         </Head>
-        <body className='bg-gradient-to-b from-[#0D1824] to-[#0B111A]'>
+        <body className='bg-neutral-800'>
           <Main />
           <NextScript />
         </body>

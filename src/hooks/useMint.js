@@ -1,8 +1,8 @@
 import { nftContract } from 'contracts/nftContract/nftContract';
-import { BigNumber } from 'ethers';
+import { useRouter } from 'next/router';
 import { useContractWrite, useNetwork, usePrepareContractWrite } from 'wagmi';
 import { useWaitForTransaction } from 'wagmi';
-import { useRouter } from "next/router";
+
 import { TransactionStatus } from '@/constant/types';
 import { useToast } from '@/contexts/ToastContext';
 
@@ -12,10 +12,9 @@ export default function useMint(count) {
 
   const router = useRouter();
   let { ref } = router.query;
-  if (typeof ref === 'undefined'){
-    ref= '0';
+  if (typeof ref === 'undefined') {
+    ref = '0';
   }
-  
 
   const preparation = usePrepareContractWrite({
     address: nftContract[chain?.id]?.address,
