@@ -13,7 +13,7 @@ export default function Footer() {
             className=' scale-1 fill-slate-100 transition-all ease-linear hover:scale-110'
           />
         </a>
-        <a href='https://discord.gg/BdEGEkta'>
+        <a href='https://discord.gg/V4GkGfZZUf'>
           <SiDiscord
             size={25}
             className='scale-1 fill-slate-100 transition-transform ease-in-out hover:scale-110'
