@@ -93,7 +93,7 @@ export default function Refs() {
                   <td>{Number(refs[18])}</td>
                 </tr>
                 <tr>
-                  <td>Obsidian</td>
+                  <td>Max-Cashflow</td>
                   <td>{Number(refs[19])}</td>
                 </tr>
                 <tr>
@@ -119,6 +119,58 @@ export default function Refs() {
                 <tr>
                   <td>SafuuX News</td>
                   <td>{Number(refs[25])}</td>
+                </tr>
+                <tr>
+                  <td>Crypto All Stars</td>
+                  <td>{Number(refs[26])}</td>
+                </tr>
+                <tr>
+                  <td>Project79</td>
+                  <td>{Number(refs[27])}</td>
+                </tr>
+                <tr>
+                  <td>TheCoffeeBlock</td>
+                  <td>{Number(refs[28])}</td>
+                </tr>
+                <tr>
+                  <td>Defi Maso</td>
+                  <td>{Number(refs[29])}</td>
+                </tr>
+                <tr>
+                  <td>Rmack56</td>
+                  <td>{Number(refs[30])}</td>
+                </tr>
+                <tr>
+                  <td>deficriminal</td>
+                  <td>{Number(refs[31])}</td>
+                </tr>
+                <tr>
+                  <td>APlus</td>
+                  <td>{Number(refs[32])}</td>
+                </tr>
+                <tr>
+                  <td>radishz</td>
+                  <td>{Number(refs[33])}</td>
+                </tr>
+                <tr>
+                  <td>Matt Bills</td>
+                  <td>{Number(refs[34])}</td>
+                </tr>
+                <tr>
+                  <td>Jimbob</td>
+                  <td>{Number(refs[35])}</td>
+                </tr>
+                <tr>
+                  <td>Foggie 24K</td>
+                  <td>{Number(refs[36])}</td>
+                </tr>
+                <tr>
+                  <td>LadyBossNat</td>
+                  <td>{Number(refs[37])}</td>
+                </tr>
+                <tr>
+                  <td>RazzTafari</td>
+                  <td>{Number(refs[38])}</td>
                 </tr>
 
               </table>
