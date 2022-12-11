@@ -172,6 +172,18 @@ export default function Refs() {
                   <td>RazzTafari</td>
                   <td>{Number(refs[38])}</td>
                 </tr>
+                <tr>
+                  <td>cryptomoneyengine</td>
+                  <td>{Number(refs[39])}</td>
+                </tr>
+                <tr>
+                  <td>Giaco</td>
+                  <td>{Number(refs[40])}</td>
+                </tr>
+                <tr>
+                  <td>lumabet</td>
+                  <td>{Number(refs[41])}</td>
+                </tr>
 
               </table>
 {/*

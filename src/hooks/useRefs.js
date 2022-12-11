@@ -279,6 +279,27 @@ export default function useRefs() {
         args: [39],
         select: (data) => Number(data),
       },
+      {
+        address: nftContract[chain?.id]?.address,
+        abi: nftContract[chain?.id]?.abi,
+        functionName: `refInfo`,
+        args: [40],
+        select: (data) => Number(data),
+      },
+      {
+        address: nftContract[chain?.id]?.address,
+        abi: nftContract[chain?.id]?.abi,
+        functionName: `refInfo`,
+        args: [41],
+        select: (data) => Number(data),
+      },
+      {
+        address: nftContract[chain?.id]?.address,
+        abi: nftContract[chain?.id]?.abi,
+        functionName: `refInfo`,
+        args: [42],
+        select: (data) => Number(data),
+      },
     ],
   });
 
