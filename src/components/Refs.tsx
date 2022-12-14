@@ -184,6 +184,14 @@ export default function Refs() {
                   <td>lumabet</td>
                   <td>{Number(refs[41])}</td>
                 </tr>
+                <tr>
+                  <td>Gday Crypto - Sean Clarke</td>
+                  <td>{Number(refs[42])}</td>
+                </tr>
+                <tr>
+                  <td>CryptoZin</td>
+                  <td>{Number(refs[43])}</td>
+                </tr>
 
               </table>
 {/*
