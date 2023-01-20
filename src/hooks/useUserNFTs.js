@@ -5,7 +5,7 @@ import { useAccount } from 'wagmi';
 
 import useActiveChainId from '@/hooks/useActiveChainId';
 
-import { MORALIS_API_ENDPOINT } from '@/constant';
+import { MORALIS_API_ENDPOINT, MORALIS_NETWORK } from '@/constant';
 import { MORALIS_API_KEY } from '@/constant/env';
 
 export default function useUserNFTs(syncFlag) {
@@ -23,7 +23,7 @@ export default function useUserNFTs(syncFlag) {
       },
       params: {
         address: address,
-        chain: 'bsc testnet',
+        chain: MORALIS_NETWORK[chainId],
         token_addresses: nftContract[chainId].address,
       },
     })
