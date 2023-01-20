@@ -14,6 +14,7 @@ module.exports = {
           light: '#F48530',
           dark: '#9bef13',
         },
+        'upgray': '#2E2D2DFF',
         primary: {
           // Customize it on globals.css :root
           50: 'rgb(var(--tw-color-primary-50) / <alpha-value>)',

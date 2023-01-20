@@ -1,21 +1,22 @@
-import { tokenContract } from 'contracts/token/tokenContract';
-import { useAccount, useContractRead, useNetwork } from 'wagmi';
+import { tokenContract as bep20 } from 'contracts/token/tokenContract';
+import { useAccount, useContractRead } from 'wagmi';
 
-import { BigNumberToLocalString } from '@/lib/numberToLocalString';
+import useActiveChainId from '@/hooks/useActiveChainId';
 
-export default function useUserBalance() {
-  const { chain } = useNetwork();
-  const { address } = useAccount();
+export default function useUserBalance(token) {
+  const chainId = useActiveChainId();
+  const { address: account } = useAccount();
 
-  const { data, isLoading } = useContractRead({
-    address: tokenContract[chain?.id]?.address,
-    abi: tokenContract[chain?.id]?.abi,
+  const contractInfo = {
+    address: token,
+    abi: bep20[chainId].abi,
+  };
+
+  const { data } = useContractRead({
+    ...contractInfo,
     functionName: `balanceOf`,
-    args: [address],
-    watch: true,
-    keepPreviousData: true,
-    select: (data) => BigNumberToLocalString(data, 1),
+    args: [account],
   });
 
-  return { userBalance: data, isLoading };
+  return data || 0;
 }

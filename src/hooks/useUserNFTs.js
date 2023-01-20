@@ -1,17 +1,39 @@
-import { nftContract } from 'contracts/nftContract/nftContract';
-import { useAccount, useContractRead, useNetwork } from 'wagmi';
+import axios from 'axios';
+import nftContract from 'contracts/nftContract/nftContract';
+import { useEffect, useState } from 'react';
+import { useAccount } from 'wagmi';
 
-export default function useUserNFTs() {
-  const { chain } = useNetwork();
+import useActiveChainId from '@/hooks/useActiveChainId';
+
+import { MORALIS_API_ENDPOINT } from '@/constant';
+import { MORALIS_API_KEY } from '@/constant/env';
+
+export default function useUserNFTs(syncFlag) {
+  const chainId = useActiveChainId();
   const { address } = useAccount();
 
-  const { data, isLoading } = useContractRead({
-    address: nftContract[chain?.id]?.address,
-    abi: nftContract[chain?.id]?.abi,
-    functionName: `balanceOf`,
-    args: [address],
-    watch: false,
-  });
+  const [userNFTs, setUserNFTs] = useState([]);
 
-  return { userNFTs: Number(data), isLoading };
+  useEffect(() => {
+    axios({
+      url: `${MORALIS_API_ENDPOINT}/:address/nft`,
+      method: 'GET',
+      headers: {
+        'x-api-key': MORALIS_API_KEY,
+      },
+      params: {
+        address: address,
+        chain: 'bsc testnet',
+        token_addresses: nftContract[chainId].address,
+      },
+    })
+      .then((res) => {
+        setUserNFTs(res.data.result.map((token) => token.token_id));
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [address, chainId, syncFlag]);
+
+  return userNFTs;
 }
