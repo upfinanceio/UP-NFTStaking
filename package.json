@@ -19,8 +19,6 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.4",
-    "@moralisweb3/common-evm-utils": "^2.11.1",
-    "@moralisweb3/next": "^2.11.1",
     "clsx": "^1.2.1",
     "connectkit": "^0.0.2",
     "ethers": "^5.7.2",
