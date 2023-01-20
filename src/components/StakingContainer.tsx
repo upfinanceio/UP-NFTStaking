@@ -249,7 +249,7 @@ const MainPanel = ({ userNFTs, stakedNFTs, switchPanel }: MainPanelProps) => {
         </div>
         {(rewardTokens as string[])
           .map((token, index) => ({ key: index, value: token }))
-          .filter(({ key }) => BigNumber.from(pendingRewards[key]).gt(0))
+          .filter(({ key }) => BigNumber.from(pendingRewards[key] || 0).gt(0))
           .map(({ key, value }) => (
             <RewardTableRow
               token={value}

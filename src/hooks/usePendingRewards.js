@@ -1,5 +1,5 @@
 import { stakingContract } from 'contracts/stakingContract';
-import { useAccount, useContractRead, useContractReads } from 'wagmi';
+import { useContractReads } from 'wagmi';
 
 import useActiveChainId from './useActiveChainId';
 
@@ -16,7 +16,7 @@ export default function usePendingRewards(rewardTokens, nfts) {
       ...contractInfo,
       functionName: 'earned',
       args: [token, nfts],
-      watch: true
+      watch: true,
     })),
   });
 

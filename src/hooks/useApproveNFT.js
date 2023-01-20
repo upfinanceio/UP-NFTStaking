@@ -28,7 +28,7 @@ export default function useApproveNFT() {
     ...contractInfo,
     functionName: 'isApprovedForAll',
     args: [account, stakingContract[chainId].address],
-    watch: true
+    watch: true,
   });
 
   const prep = usePrepareContractWrite({
