@@ -131,7 +131,7 @@ const UnstakePanel = ({ targetNFTs, onClose }: StakePanelProps) => {
     feeToken,
     unstake
   );
-  
+
   const needToApproveFeeToken = () => {
     return BigNumber.from(allowance).lt(BigNumber.from(feeAmount));
   };
@@ -247,13 +247,16 @@ const MainPanel = ({ userNFTs, stakedNFTs, switchPanel }: MainPanelProps) => {
             {`${(stakedNFTs as number[]).length}`} NFTs
           </div>
         </div>
-        {(rewardTokens as string[]).map((token, index) => (
-          <RewardTableRow
-            token={token}
-            reward={BigNumber.from(pendingRewards[index] || 0)}
-            key={index}
-          />
-        ))}
+        {(rewardTokens as string[])
+          .map((token, index) => ({ key: index, value: token }))
+          .filter(({ key }) => BigNumber.from(pendingRewards[key]).gt(0))
+          .map(({ key, value }) => (
+            <RewardTableRow
+              token={value}
+              reward={BigNumber.from(pendingRewards[key] || 0)}
+              key={key}
+            />
+          ))}
       </div>
 
       {isNFTApproved ? (
