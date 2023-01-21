@@ -1,6 +1,7 @@
 import ConnectButton from '@/components/buttons/ConnectButton';
 import Logo from '@/components/layout/Menu/Logo';
 import MenuItems from '@/components/layout/Menu/MenuItems';
+import Tokens from '@/components/layout/Menu/Tokens';
 
 export default function Menu() {
   return (
@@ -13,8 +14,11 @@ export default function Menu() {
                 <Logo />
               </div>
               <div className='flex items-center gap-4 align-middle text-primary-50'>
+                <Tokens />
                 <MenuItems />
-                <ConnectButton />
+                <div className='connect-btn'>
+                  <ConnectButton />
+                </div>
               </div>
             </div>
           </div>
