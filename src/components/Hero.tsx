@@ -13,7 +13,7 @@ export function Hero() {
         <br></br> Stake to earn monthly rewards in $UP and be eligible for any additional
         rewards tokens* that may be added to the contract as part of the monthly distributions.
         <br></br>
-        You have to be staked to earn rewards!!! Please watch gas price as transactions with multiple
+        <br></br>You have to be staked to earn rewards!!! Please watch gas price as transactions with multiple
         NFTs can be costly.  It maybe beneficial to not process more than 50 NFTs at once.
         <br></br>
         <br></br>*Additional reward tokens will vary and will not always be part of monthly
