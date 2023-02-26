@@ -9,7 +9,7 @@ export default function Tokens() {
 
   const tokens = [
     { id: 1, label: '$UP', link: 'https://app.upfinance.io' },
-    { id: 2, label: '$upRISE', link: 'https://uprise.upfinance.io' },
+    { id: 2, label: '$UP+', link: 'https://upplus.upfinance.io' },
     { id: 3, label: '$upEMP', link: 'https://upemp.upfinance.io/' },
   ];
 
